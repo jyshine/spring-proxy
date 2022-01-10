@@ -9,7 +9,7 @@ public class OrderServiceV2 {
     }
 
 
-    public void save(String itemId) {
+    public void orderItem(String itemId) {
         orderRepository.save(itemId);
     }
 }
