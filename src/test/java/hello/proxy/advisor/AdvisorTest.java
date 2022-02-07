@@ -38,7 +38,7 @@ public class AdvisorTest {
     void advisorTest2(){
         ServiceInterface target = new ServiceImpl();
         ProxyFactory proxyFactory = new ProxyFactory(target);
-        DefaultPointcutAdvisor defaultPointcutAdvisor = new DefaultPointcutAdvisor(Pointcut.TRUE, new TimeAdvice());
+        DefaultPointcutAdvisor defaultPointcutAdvisor = new DefaultPointcutAdvisor(new MyPointCut(), new TimeAdvice());
         proxyFactory.addAdvisor(defaultPointcutAdvisor);
         ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
 
@@ -58,7 +58,7 @@ public class AdvisorTest {
 
         @Override
         public MethodMatcher getMethodMatcher() {
-            return null;
+            return new MyMethodMatcher();
         }
     }
 
